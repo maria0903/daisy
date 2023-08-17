@@ -81,14 +81,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* 実行部 */
     var languages = new Array({
-        txt: '한국어',
-        img: '국기/Korean.jpg'
+        txt: 'English',
+        img: '국기/UN.jpg'
     },{
         txt: '日本語',
         img: '국기/Japan.jpg'
     },{
-        txt: 'English',
-        img: '국기/UN.jpg'
+        txt: '한국어',
+        img: '국기/Korean.jpg'
     },{
         txt: '中文',
         img: '국기/China.jpg'
