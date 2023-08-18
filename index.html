@@ -17,16 +17,32 @@
         <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     </head>
     <body>
+        <!-- 메뉴 -->
+        <div id="mySidenav" class="sidenav background">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
         <!-- Header -->
         <header>
-            <h1 class="title">Map</h1>
+            <h1 class="title display" data-i18n="en">Map</h1>
+            <h1 class="title" data-i18n="ja">地図</h1>
+            <h1 class="title" data-i18n="ko">지도</h1>
+            <h1 class="title" data-i18n="cn">地图</h1>
+            <h1 class="title" data-i18n="vi">bản đồ</h1>
             <!-- 언어선택매뉴 -->
-                <table class="imitationSelect" id="sel2">
-                </table>
+            <table class="imitationSelect" id="sel2"></table>
+            <!-- 네비게이션 메뉴 (햄버거 메뉴) -->
+            <span class="nav-menu" onclick="openNav()">&#9776;</span>
         </header>
 
         <!-- Map -->
         <iframe id="ThreatMap" src="https://travel-danger.vercel.app/v1/map"></iframe>
+
+        <!-- 추가 콘텐츠 -->
+        <p style="padding-top: 8px">추가 콘텐츠 영역</p>
 
         <!-- Footer -->
         <footer>
