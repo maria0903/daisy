@@ -94,7 +94,7 @@ async function setHotNewsElement () {
             keyword: '살인'
         })
     };
-    const hotNewsData = await fetchUrl(apiUrlSchemeDev + hotNewsUrl, data);
+    const hotNewsData = await fetchUrl(apiUrlScheme + hotNewsUrl, data);
 
     if (hotNewsData.length) {
         const hotNewsAreaElem = document.getElementById('hot-news-area');
