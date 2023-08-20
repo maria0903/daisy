@@ -105,17 +105,17 @@ async function setHotNewsElement () {
             htmlDivElement.classList = ['additional-row'];
             htmlDivElement.ariaRowIndex = idx + 1;
             htmlDivElement.innerHTML = `
-                <div>
+                <a href="${x.url}">
                     <p class="additional-title">${idx + 1}. ${x.title}</p>
                     <div class="flex gap-1 pt-1 justify-space-between">
-                        <p class="additional-desc">description</p>
+                        <p class="additional-desc">${x.desc}</p>
                         <img class="additional-img" src="${x.imgUrl}" alt="${x.title}"></img>
                     </div>
-                </div>
+                </a>
                 `;
 
             hotNewsAreaElem.appendChild(htmlDivElement);
-        })
+        });
     }
 }
 

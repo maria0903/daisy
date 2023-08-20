@@ -14,6 +14,11 @@
     --main-sub-dark-color: gray;
 }
 
+a {
+    text-decoration: none;
+    color: unset;
+}
+
 * {
     font-family: 'Nanum Gothic', sans-serif !important;
 }

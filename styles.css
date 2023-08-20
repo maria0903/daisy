@@ -164,17 +164,17 @@ td.imitationText {
 /*News */
 #news{
   text-align: center;
-  width: 55%;
+  width: 50%;
 }
-#hot-news-area {
-  max-height: 240px;
+#hot-news-area, #hot-news-area2 {
+  max-height: 264px;
   overflow: scroll;
   border:1px solid #d1d1d1;
 }
 
 /* ニュースコンテンツ一行 */
 .additional-row {
-  padding-bottom: 4px;
+  padding: 4px;
 }
 
 /* ニュースコンテンツのタイトル */
@@ -182,7 +182,13 @@ td.imitationText {
   font-size: 12px;
 }
 
+.additional-desc {
+  height: 64px;
+  overflow: hidden;
+}
+
 .additional-img {
+  border-radius: 4px;
   height: 64px;
   aspect-ratio: auto 87 / 87;
 }
