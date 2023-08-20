@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" class="background">
+
+<head>
+    <!-- <div class="background"></div> -->
+    <title>Home2222</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../styles-2.css" />
+    <!-- javascript -->
+    <script src="../script.js"></script>
+    <script src="../select.js"></script>
+    <!-- フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=Nanum+Gothic:wght@400;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+Tai+Viet&family=Orbit&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!-- 메뉴 -->
+<div id="mySidenav" class="sidenav background">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="../index.html">살인예고 정보</a>
+    <a href="#">안전장소 정보</a>
+    <a href="#">경찰 전화번호 정보</a>
+    <a href="#">제보하기</a>
+    <a href="#">긴급 119</a>
+</div>
+<!-- Header -->
+<header>
+    <h1 class="title display" data-i18n="en">Murder Warning Map</h1>
+    <h1 class="title" data-i18n="ja">殺人予告マップ</h1>
+    <h1 class="title" data-i18n="ko">살인 예고 지도</h1>
+    <h1 class="title" data-i18n="cn">杀人预告图</h1>
+    <h1 class="title" data-i18n="vi">Bản đồ dự báo giết người</h1>
+    <!-- 언어선택매뉴 -->
+    <table class="imitationSelect" id="sel2"></table>
+    <!-- 네비게이션 메뉴 (햄버거 메뉴) -->
+    <span class="nav-menu" onclick="openNav()">&#9776;</span>
+</header>
+
+<!-- 검색 -->
+<form method="get" action="/search" id="searchbox5" class="padding-default-x padding-default-y pt-0">
+    <input id="search51" name="q" type="text" size="40" placeholder="홍대역,ホンデ駅" />
+</form>
+
+<!-- 경찰정보 리스트 -->
+<div id="police-info" class="flex flex-wrap">
+</div>
+
+
+<!-- Footer -->
+<footer>
+    <p>
+        <small>Copyright 2023.maria.wonseok. All rights reserved</small>
+    </p>
+</footer>
+</body>
+
+</html>
