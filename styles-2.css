@@ -18,7 +18,7 @@ body {
     margin: 0;
 }
 footer{
-    height: 40px;
+    height: 28px;
     /*position : relative;*/
     /*transform : translateY(-100%);*/
     text-align: center;
@@ -80,21 +80,40 @@ h1, h2, h3, h4, h5, h6 {
     .sidenav a {font-size: 18px;}
 }
 
+.padding-default-x {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+}
+
+.padding-default-y {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+.pt-0 {
+    padding-top: 0;
+}
+
 .col-6 {
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 50%;
 }
 
-#additional-contents {
+.w-full {
+    width: 100%;
+}
+
+.flex {
     display: flex;
-    align-items: center;
-    padding-left: 0.6rem;
-    padding-right: 0.6rem;
 }
 
 .display {
     display: flex !important;
+}
+
+.gap-1 {
+    gap: 4px;
 }
 
 *[data-i18n] {
