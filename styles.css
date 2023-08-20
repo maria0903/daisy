@@ -28,6 +28,12 @@ header {
   display: flex;
 }
 
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #sel2 {
   margin-left: 80px;
 }
@@ -122,4 +128,30 @@ td.imitationText {
 
 .flag {
   width: 30px
+}
+
+/* 下からは整列だけしています
+ * 色、フォントのサイズなどはマリアの決まり
+ */
+#additional-contents {
+  display: flex;
+  align-items: center;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+}
+
+/*　 */
+#hot-news-area {
+  max-height: 292px;
+  overflow: scroll;
+}
+
+/* ニュースコンテンツ一行 */
+.additional-row {
+  padding-bottom: 4px;
+}
+
+/* ニュースコンテンツのタイトル */
+.additional-title {
+  font-size: 12px;
 }
