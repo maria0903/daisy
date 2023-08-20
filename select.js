@@ -89,23 +89,23 @@ document.addEventListener("DOMContentLoaded", function () {
     /* 実行部 */
     var languages = [{
         txt: 'English',
-        img: '국기/UN.jpg',
+        img: 'https://malihua-store.s3.ap-northeast-2.amazonaws.com/flag/UN.jpg',
         val: 'en'
     },{
         txt: '日本語',
-        img: '국기/Japan.jpg',
+        img: 'https://malihua-store.s3.ap-northeast-2.amazonaws.com/flag/Japan.jpg',
         val: 'ja'
     },{
         txt: '한국어',
-        img: '국기/Korean.jpg',
+        img: 'https://malihua-store.s3.ap-northeast-2.amazonaws.com/flag/Korean.jpg',
         val: 'ko'
     },{
         txt: '汉语',
-        img: '국기/China.jpg',
+        img: 'https://malihua-store.s3.ap-northeast-2.amazonaws.com/flag/China.jpg',
         val: 'cn'
     }, {
         txt: 'Tiếng Việt',
-        img: '국기/Vietnam.jpg',
+        img: 'https://malihua-store.s3.ap-northeast-2.amazonaws.com/flag/Vietnam.jpg',
         val: 'vi'
     }];
     // 定義と表示

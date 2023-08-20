@@ -14,13 +14,29 @@
     --main-sub-dark-color: gray;
 }
 
+:lang(cn) {
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+:lang(ko) {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+:lang(ja) {
+    font-family: 'azuki', 'Nanum Gothic', sans-serif;
+}
+
+:lang(en) {
+    font-family: 'Raleway', sans-serif;
+}
+
+:lang(vi) {
+    font-weight: 400;
+}
+
 a {
     text-decoration: none;
     color: unset;
-}
-
-* {
-    font-family: 'Nanum Gothic', sans-serif !important;
 }
 
 iframe {
@@ -58,7 +74,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 *{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 400;
 }
 
 .sidenav {
@@ -121,6 +138,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .pt-1 {
     padding-top: 4px;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
 }
 
 .col-6 {

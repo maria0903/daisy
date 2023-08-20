@@ -30,9 +30,16 @@ const languageList = [
 const languageSelectId = 'sel2';
 
 async function main() {
+    const href = document.location.href;
+
     setLocale();
-    setHotNewsElement();
-    const safeMapData = await fetchUrl(apiUrlScheme + safeMapUrl);
+
+    if (href.includes('police')) {
+        setPoliceInfoElement();
+    } else {
+        setHotNewsElement();
+        const safeMapData = await fetchUrl(apiUrlScheme + safeMapUrl);
+    }
 }
 
 function setLocale () {
@@ -78,6 +85,7 @@ const apiUrlScheme = 'https://travel-danger.vercel.app/api';
 const apiUrlSchemeDev = 'http://localhost:3001/api';
 const safeMapUrl = '/safeMap/v1/list';
 const hotNewsUrl = '/news/v1/list';
+const policeInfoUrl = '/police/v1/list';
 
 /** 안전한 지역 불러오기 */
 
@@ -116,6 +124,44 @@ async function setHotNewsElement () {
 
             hotNewsAreaElem.appendChild(htmlDivElement);
         });
+    }
+}
+
+async function setPoliceInfoElement () {
+    const policeInfoData = await fetchUrl(apiUrlScheme + policeInfoUrl);
+
+    console.log(policeInfoData);
+
+    if (Object.keys(policeInfoData).length) {
+        const policeInfoAreaElem = document.getElementById('police-info');
+
+        Object.entries(policeInfoData).forEach(([key, val]) => {
+            const htmlDivElement = document.createElement('div');
+
+            htmlDivElement.classList = ['col-6'];
+            htmlDivElement.ariaValueText = key;
+            htmlDivElement.innerHTML = `
+                <div>
+                    <p class="police-capital">${key}</p>
+                    <table>
+                        <tr>
+                            <th>관서</th>
+                            <th>주소</th>
+                            <th>홈페이지</th>
+                        </tr>
+                        ${
+                            val.map(data => `<tr>
+                                <td>${data.capital}</td>
+                                <td>${data.address}</td>
+                                <td>${data.url}</td>
+                            </tr>`.replace(',', ''))
+                        }
+                    </table>
+                </div>
+            `;
+
+            policeInfoAreaElem.appendChild(htmlDivElement);
+        })
     }
 }
 
