@@ -74,7 +74,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* プルダウンの中身をクリックした時 */
     ImitationSelect.prototype.selectPD = function (e) {
-        const selectedLng = e.target.getAttribute('value');
+        let selecteLng = e;
+        if (typeof e === 'object') {
+            selectedLng = e.target.getAttribute('value');
+        }
 
         changeLanguage(selectedLng);
 

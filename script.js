@@ -1,30 +1,52 @@
 const Http = new XMLHttpRequest();
-const safeMapUrl = 'http://localhost:3001/api/safeMap/v1/list';
+
+const languageList = [
+    {
+        "txt": "English",
+        "img": "국기/UN.jpg",
+        "val": "en"
+    },
+    {
+        "txt": "日本語",
+        "img": "국기/Japan.jpg",
+        "val": "ja"
+    },
+    {
+        "txt": "한국어",
+        "img": "국기/Korean.jpg",
+        "val": "ko"
+    },
+    {
+        "txt": "中文",
+        "img": "국기/China.jpg",
+        "val": "cn"
+    },
+    {
+        "txt": "Tiếng Việt",
+        "img": "국기/Vietnam.jpg",
+        "val": "vi"
+    }
+];
+const languageSelectId = 'sel2';
 
 async function main() {
-    await getSafeMapData();
-    console.log(1);
+    setLocale();
+    setHotNewsElement();
+    const safeMapData = await fetchUrl(apiUrlScheme + safeMapUrl);
 }
 
-/** 안전한 지역 불러오기 */
-async function getSafeMapData() {
-    await Http.open('POST', safeMapUrl);
-    await Http.send();
-    Http.onreadystatechange = (e) => {
-        if (Http.responseText) {
-            const datas = JSON.parse(Http.responseText);
-        }
-    };
+function setLocale () {
+    const currentLanguage = getLanguage();
 
-    console.log(document);
+    if (currentLanguage) {
+        changeLanguage(currentLanguage.split('-')[0]);
+    }
 }
 
-main();
 
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
 }
-
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
@@ -38,8 +60,6 @@ function changeLanguage(language) {
         x.style.cssText = 'display: none !important;';
     })
 
-    console.log(language);
-
     const selectedLanguageElemList = document.querySelectorAll(`*[data-i18n="${language}"]`);
 
     selectedLanguageElemList.forEach(x => {
@@ -49,3 +69,42 @@ function changeLanguage(language) {
     })
 
 }
+
+function getLanguage() {
+    return navigator.language || navigator.userLanguage;
+}
+
+const apiUrlScheme = 'https://travel-danger.vercel.app/api';
+const safeMapUrl = '/safeMap/v1/list';
+const hotNewsUrl = '/news/v1/list';
+
+/** 안전한 지역 불러오기 */
+
+async function fetchUrl(url, options = {}) {
+    return await fetch(url, options)
+        .then(response => response.json())
+        .catch(error => console.log('error', error));
+}
+
+async function setHotNewsElement () {
+    const hotNewsData = await fetchUrl(apiUrlScheme + hotNewsUrl);
+
+    if (hotNewsData.length) {
+        const hotNewsAreaElem = document.getElementById('hot-news-area');
+
+        hotNewsData.forEach((x, idx) => {
+            const htmlDivElement = document.createElement('div');
+
+            htmlDivElement.classList = ['additional-row'];
+            htmlDivElement.ariaRowIndex = idx + 1;
+            htmlDivElement.innerHTML = `<p class="additional-title">${idx + 1}. ${x.title}</p>`;
+
+            hotNewsAreaElem.appendChild(htmlDivElement);
+        })
+    }
+}
+
+// document ready
+document.addEventListener("DOMContentLoaded", function () {
+    main();
+});
