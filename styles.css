@@ -156,9 +156,10 @@ td.imitationText {
  */
 #additional-contents {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding-left: 0.6rem;
   padding-right: 0.6rem;
+  gap: 4px;
 }
 
 /*News */
