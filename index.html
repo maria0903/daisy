@@ -38,17 +38,13 @@
             <span class="nav-menu" onclick="openNav()">&#9776;</span>
         </header>
 
-        <!-- 検索 -->
+        <!-- 검색 -->
         <!-- 整列だけしていて中の検索領域と「Search」の文字のデザイン -->
-        <div class="flex padding-default-x padding-default-y pt-0 gap-1">
-            <label for="searchbox">Search</label>
-            <input
-                type="search"
-                oninput="liveSearch()"
-                id="searchbox"
-                class="w-full"
-            >
-        </div>
+        <div id="search5back">
+            <form method="get" action="/search" id="searchbox5">
+                <input id="search51" name="q" type="text" size="40" placeholder="홍대역,ホンデ駅" />
+            </form>    
+            </div>
 
 
         <!-- Map -->
