@@ -45,7 +45,7 @@ function setLocale () {
 
 
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("mySidenav").style.width = "180px";
 }
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
@@ -75,6 +75,7 @@ function getLanguage() {
 }
 
 const apiUrlScheme = 'https://travel-danger.vercel.app/api';
+const apiUrlSchemeDev = 'http://localhost:3001/api';
 const safeMapUrl = '/safeMap/v1/list';
 const hotNewsUrl = '/news/v1/list';
 
@@ -87,7 +88,13 @@ async function fetchUrl(url, options = {}) {
 }
 
 async function setHotNewsElement () {
-    const hotNewsData = await fetchUrl(apiUrlScheme + hotNewsUrl);
+    const data = {
+        method: 'POST',
+        body: JSON.stringify({
+            keyword: '살인'
+        })
+    };
+    const hotNewsData = await fetchUrl(apiUrlSchemeDev + hotNewsUrl, data);
 
     if (hotNewsData.length) {
         const hotNewsAreaElem = document.getElementById('hot-news-area');
@@ -97,7 +104,15 @@ async function setHotNewsElement () {
 
             htmlDivElement.classList = ['additional-row'];
             htmlDivElement.ariaRowIndex = idx + 1;
-            htmlDivElement.innerHTML = `<p class="additional-title">${idx + 1}. ${x.title}</p>`;
+            htmlDivElement.innerHTML = `
+                <div>
+                    <p class="additional-title">${idx + 1}. ${x.title}</p>
+                    <div class="flex gap-1 pt-1 justify-space-between">
+                        <p class="additional-desc">description</p>
+                        <img class="additional-img" src="${x.imgUrl}" alt="${x.title}"></img>
+                    </div>
+                </div>
+                `;
 
             hotNewsAreaElem.appendChild(htmlDivElement);
         })
