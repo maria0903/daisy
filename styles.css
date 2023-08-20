@@ -210,3 +210,31 @@ table th{
 .policeen{
   font-size: 10px;
 }
+.policech{
+  font-size: 19px;
+}
+.form{
+  text-align:center;
+  padding:35px 0;
+}
+.formen{
+  text-align:center;
+  padding:45px 0;
+}
+.formcn{
+  max-width:80%;
+  margin:0 auto;  
+  display: inline-block;
+  padding:45px 0;
+  text-align:center;
+  text-decoration: center;
+  font-size: 15px; 
+}
+.formvi{
+  font-size: 15px;
+  text-align:center;
+  padding:0px;
+}
+.send{
+  text-align: right;
+}

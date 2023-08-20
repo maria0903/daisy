@@ -47,7 +47,11 @@
 
     <!-- 검색 -->
     <form method="get" action="/search" id="searchbox5" class="padding-default-x padding-default-y pt-0">
-        <input id="search51" name="q" type="text" size="40" placeholder="홍대역,ホンデ駅" />
+        <input data-i18n="en" id="search51" name="q" type="text" size="40" placeholder="Hongdae Station" />
+        <input data-i18n="ja" id="search51" name="q" type="text" size="40" placeholder="ホンデ駅" />
+        <input data-i18n="ko" id="search51" name="q" type="text" size="40" placeholder="홍대역" />
+        <input data-i18n="cn" id="search51" name="q" type="text" size="40" placeholder="弘大站" />
+        <input data-i18n="vi" id="search51" name="q" type="text" size="40" placeholder="Hongdae Station" />
     </form>
 
 
@@ -63,45 +67,120 @@
             <div id="police">
                 <table data-i18n="en" class="policeen">
                     <tr>
-                        <th >Reporting</th><th>Accidents</th><th>Murders</th>
+                        <th>Reporting</th>
+                        <th>Accidents</th>
+                        <th>Murders</th>
                     </tr>
                     <tr>
-                        <td></td><td></td><td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </table>
                 <table data-i18n="ja">
                     <tr>
-                        <th>申告</th><th>事故</th><th>殺人</th>
+                        <th>申告</th>
+                        <th>事故</th>
+                        <th>殺人</th>
                     </tr>
                     <tr>
-                        <td></td><td></td><td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </table>
                 <table data-i18n="ko">
                     <tr>
-                        <th>신고</th><th>사고</th><th>살인</th>
+                        <th>신고</th>
+                        <th>사고</th>
+                        <th>살인</th>
                     </tr>
                     <tr>
-                        <td></td><td></td><td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </table>
-                <table data-i18n="cn">
+                <table data-i18n="cn" class="policech">
                     <tr>
-                        <th>举报</th><th>事故</th><th>杀人</th>
+                        <th>举报</th>
+                        <th>事故</th>
+                        <th>杀人</th>
                     </tr>
                     <tr>
-                        <td></td><td></td><td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </table>
                 <table data-i18n="vi">
                     <tr>
-                        <th>Khai báo</th><th>tai nạn</th><th>giết người</th>
+                        <th>Khai báo</th>
+                        <th>tai nạn</th>
+                        <th>giết người</th>
                     </tr>
                     <tr>
-                        <td></td><td></td><td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </table>
             </div>
+                <form  data-i18n="en" class="formen" class="form">
+                    <div>
+                        <div>
+                            <label>Please give us a tip-off<br></label>
+                            <input id="example" type="text" name="text" />
+                          </div>
+                          <div class="send">
+                            <input type="submit" value="Send" />
+                          </div>
+                    </div>
+                  </form>
+                  <form  data-i18n="ja" class="form">
+                    <div>
+                    <div>
+                      <label>情報提供をお願いします。<br></label>
+                      <input id="example" type="text" name="text" />
+                    </div>
+                    <div  class="send">
+                      <input type="submit" value="送信" />
+                    </div>
+                </div>
+                  </form>
+                  <form  data-i18n="ko" class="form">
+                    <div>
+                    <div>
+                      <label>제보를 부탁드립니다.<br></label>
+                      <input id="example" type="text" name="text" />
+                    </div>
+                    <div class="send">
+                      <input type="submit" value="송신" />
+                    </div>
+                </div>
+                  </form>
+                  <form  data-i18n="cn" class="formcn" class="form">
+                    <div>
+                    <div>
+                      <label>请提供情报<br></label>
+                      <input id="example" type="text" name="text" />
+                    </div>
+                    <div class="send">
+                      <input type="submit" value="发送" />
+                    </div>
+                </div>
+                  </form>
+                  <form  data-i18n="vi" class="formvi" class="form">
+                    <div>
+                    <div>
+                      <label class="formvi">Xin hãy báo tin cho chúng tôi<br></label>
+                      <input id="example" type="text" name="text" />
+                    </div>
+                    <div class="send">
+                      <input type="submit" value="Gửi" />
+                    </div>
+                </div>
+                  </form>
         </div>
     </div>
 
