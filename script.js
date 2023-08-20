@@ -17,7 +17,7 @@ const languageList = [
         "val": "ko"
     },
     {
-        "txt": "中文",
+        "txt": "汉语",
         "img": "국기/China.jpg",
         "val": "cn"
     },

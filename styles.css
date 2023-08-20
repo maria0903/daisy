@@ -18,7 +18,7 @@ div {
 }
 
 .title {
-  font-size: 40px;
+  font-size: 25px;
   width: 50%;
   display: flex;
   justify-content: end;
@@ -39,7 +39,7 @@ div {
 }
 
 #search51:focus{
-    width:100%;
+    width:80%;
     outline:0;
 }
 /*  */
@@ -55,7 +55,7 @@ footer {
 }
 
 #sel2 {
-  margin-left: 80px;
+  margin-left: 20px;
 }
 
 /* table SELECTモドキ */

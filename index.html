@@ -27,11 +27,11 @@
         </div>
         <!-- Header -->
         <header>
-            <h1 class="title display" data-i18n="en">Map</h1>
-            <h1 class="title" data-i18n="ja">地図</h1>
-            <h1 class="title" data-i18n="ko">지도</h1>
-            <h1 class="title" data-i18n="cn">地图</h1>
-            <h1 class="title" data-i18n="vi">bản đồ</h1>
+            <h1 class="title display" data-i18n="en">Murder Warning Map</h1>
+            <h1 class="title" data-i18n="ja">殺人予告マップ</h1>
+            <h1 class="title" data-i18n="ko">살인 예고 지도</h1>
+            <h1 class="title" data-i18n="cn">杀人预告图</h1>
+            <h1 class="title" data-i18n="vi">Bản đồ dự báo giết người</h1>
             <!-- 언어선택매뉴 -->
             <table class="imitationSelect" id="sel2"></table>
             <!-- 네비게이션 메뉴 (햄버거 메뉴) -->
@@ -39,8 +39,6 @@
         </header>
 
         <!-- 검색 -->
-        <!-- 整列だけしていて中の検索領域と「Search」の文字のデザイン -->
-        <div id="search5back">
             <form method="get" action="/search" id="searchbox5">
                 <input id="search51" name="q" type="text" size="40" placeholder="홍대역,ホンデ駅" />
             </form>    
@@ -50,7 +48,7 @@
         <!-- Map -->
         <iframe id="ThreatMap" src="https://travel-danger.vercel.app/v1/map"></iframe>
 
-        <!-- 추가 콘텐츠 -->
+        <!-- 뉴스 -->
         <div id="additional-contents" style="padding-top: 8px">
             <div id="hot-news-area" class="col-6"></div>
             <div class="col-6"></div>

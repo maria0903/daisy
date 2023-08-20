@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
         img: '국기/Korean.jpg',
         val: 'ko'
     },{
-        txt: '中文',
+        txt: '汉语',
         img: '국기/China.jpg',
         val: 'cn'
     }, {
