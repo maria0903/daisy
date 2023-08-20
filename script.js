@@ -110,6 +110,20 @@ async function setHotNewsElement () {
         hotNewsData.forEach((x, idx) => {
             const htmlDivElement = document.createElement('div');
 
+            if (idx % 2) {
+                htmlDivElement.style = `
+                      border-radius: 3px;
+                      overflow: hidden;
+                      background: #ffffff;
+                `;
+            } else {
+                htmlDivElement.style = `
+                      border-radius: 3px;
+                      overflow: hidden;
+                      background: rgb(175 223 223);
+                `;
+            }
+
             htmlDivElement.classList = ['additional-row'];
             htmlDivElement.ariaRowIndex = idx + 1;
             htmlDivElement.innerHTML = `
