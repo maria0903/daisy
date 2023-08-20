@@ -186,3 +186,20 @@ td.imitationText {
   height: 64px;
   aspect-ratio: auto 87 / 87;
 }
+/* 경찰 */
+table th{
+  padding : 20px 10px;
+  background-color:#ade3e5e4 ;
+}
+#police{
+  max-height: 240px;
+  overflow: scroll;
+  border:1px solid #d1d1d1;
+}
+#police table  td{
+  padding : 20px 10px;
+  background-color:#ccf0f1eb ;
+}
+.policeen{
+  font-size: 10px;
+}
