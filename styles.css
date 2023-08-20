@@ -168,7 +168,7 @@ td.imitationText {
   width: 50%;
 }
 #hot-news-area, #hot-news-area2 {
-  max-height: 264px;
+  max-height: 260px;
   overflow: scroll;
   border:1px solid #d1d1d1;
 }
