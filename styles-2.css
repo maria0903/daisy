@@ -10,7 +10,7 @@ iframe {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 0;
+    border:1px solid #d1d1d1;
 }
 body {
     height : auto;

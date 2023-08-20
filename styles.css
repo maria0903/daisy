@@ -1,7 +1,7 @@
 .background {
-  background: -moz-linear-gradient(to bottom, #FFF, #FFF0F5 30%, #ffe7e1);
-  background: -webkit-linear-gradient(to bottom, #FFF, #FFF0F5 30%, #ffe7e1);
-  background: linear-gradient(to bottom, #FFF, #FFF0F5 30%, #ffe7e1);
+  background: -moz-linear-gradient(to bottom, #f2ffffb7, #e1fefeb7 30%, #ccf0f1b7);
+  background: -webkit-linear-gradient(to bottom, #f2ffffb7, #e1fefeb7 30%, #ccf0f1b7);
+  background: linear-gradient(to bottom, #f2ffffb7, #e1fefeb7 30%, #ccf0f1b7);
   min-height: 100vh;
 }
 html { min-height: 100vh; }
@@ -21,7 +21,7 @@ div {
   font-size: 25px;
   width: 50%;
   display: flex;
-  justify-content: end;
+  align-items: center;
 }
 /*  search */
 #search51{
@@ -66,8 +66,9 @@ table.imitationPulldown {
   border-collapse: separate;
   border-spacing: 0;
   border-radius: 3px;
+  border:1px solid #d1d1d1;
   overflow: hidden;
-  background: #faeee7;
+  background: #e1fefeb7;
   color: #594a4e;
   line-height: 0px;
   /* これを入れないと、下に隙間が出来る場合がある */
@@ -160,10 +161,15 @@ td.imitationText {
   padding-right: 0.6rem;
 }
 
-/*　 */
+/*News */
+#news{
+  text-align: center;
+  width: 45%;
+}
 #hot-news-area {
   max-height: 292px;
   overflow: scroll;
+  border:1px solid #d1d1d1;
 }
 
 /* ニュースコンテンツ一行 */
