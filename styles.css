@@ -211,7 +211,10 @@ table th{
   font-size: 10px;
 }
 .policech{
-  font-size: 18px;
+  font-size: 18.8px;
+}
+.policevi{
+  font-size: 1px;
 }
 .form{
   text-align:center;
@@ -222,10 +225,10 @@ table th{
   padding:45px 0;
 }
 .formcn{
-  max-width:80%;
+  max-width:100%;
   margin:0 auto;
   display: inline-block;
-  padding:35px 0;
+  padding:15px 0;
   text-align:center;
   text-decoration: none;
   font-size: 15px;
