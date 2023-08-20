@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* 実行部 */
-    var languages = new Array({
+    var languages = [{
         txt: 'English',
         img: '국기/UN.jpg',
         val: 'en'
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
         txt: 'Tiếng Việt',
         img: '국기/Vietnam.jpg',
         val: 'vi'
-    });
+    }];
     // 定義と表示
     var sel2 = new ImitationSelect("sel2", languages);
     sel2.disp();

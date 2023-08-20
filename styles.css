@@ -31,7 +31,7 @@ div {
     color:#987979;
     width:150px;
     padding:6px 15px 6px 35px;
-    border-radius:20px;
+    border-radius:8px;
     text-shadow:0 2px 3px rgba(0,0,0,0.1);
     box-shadow:0 1px 3px rgba(0,0,0,0.15) inset;
     -webkit-transition: all 0.7s ease 0s;
@@ -164,10 +164,10 @@ td.imitationText {
 /*News */
 #news{
   text-align: center;
-  width: 45%;
+  width: 55%;
 }
 #hot-news-area {
-  max-height: 292px;
+  max-height: 240px;
   overflow: scroll;
   border:1px solid #d1d1d1;
 }
@@ -178,6 +178,11 @@ td.imitationText {
 }
 
 /* ニュースコンテンツのタイトル */
-.additional-title {
+.additional-title, .additional-desc {
   font-size: 12px;
+}
+
+.additional-img {
+  height: 64px;
+  aspect-ratio: auto 87 / 87;
 }
