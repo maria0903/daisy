@@ -38,11 +38,27 @@
             <span class="nav-menu" onclick="openNav()">&#9776;</span>
         </header>
 
+        <!-- 検索 -->
+        <!-- 整列だけしていて中の検索領域と「Search」の文字のデザイン -->
+        <div class="flex padding-default-x padding-default-y pt-0 gap-1">
+            <label for="searchbox">Search</label>
+            <input
+                type="search"
+                oninput="liveSearch()"
+                id="searchbox"
+                class="w-full"
+            >
+        </div>
+
+
         <!-- Map -->
         <iframe id="ThreatMap" src="https://travel-danger.vercel.app/v1/map"></iframe>
 
         <!-- 추가 콘텐츠 -->
-        <p style="padding-top: 8px">추가 콘텐츠 영역</p>
+        <div id="additional-contents" style="padding-top: 8px">
+            <div id="hot-news-area" class="col-6"></div>
+            <div class="col-6"></div>
+        </div>
 
         <!-- Footer -->
         <footer>
