@@ -21,3 +21,31 @@ async function getSafeMapData() {
 
 main();
 
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+function changeLanguage(language) {
+    document.documentElement.lang = language.toLowerCase();
+
+    const allLanguageElemList = document.querySelectorAll(`*[data-i18n]`);
+
+    allLanguageElemList.forEach(x => {
+        x.style.cssText = 'display: none !important;';
+    })
+
+    console.log(language);
+
+    const selectedLanguageElemList = document.querySelectorAll(`*[data-i18n="${language}"]`);
+
+    selectedLanguageElemList.forEach(x => {
+        x.style.cssText = 'display: flex;';
+
+        console.log(x, x.style);
+    })
+
+}

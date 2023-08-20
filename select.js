@@ -1,6 +1,6 @@
 /**
  * 2023-08-17
- * 
+ *
  * @author 마리아
  * @description 이거는 마리아가 만든 파일이므로 지우면 안됩니다.
  */
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return "";
         }
         return "<td class='imitationImage'><img class='flag' src='" + this.arr[idx]['img'] +
-            "'></td><td class='imitationText'>" + this.arr[idx]['txt'] +
+            "'></td><td class='imitationText' value='" + this.arr[idx]['val'] + "'>" + this.arr[idx]['txt'] +
             "</td>";
     }
 
@@ -74,6 +74,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* プルダウンの中身をクリックした時 */
     ImitationSelect.prototype.selectPD = function (e) {
+        const selectedLng = e.target.getAttribute('value');
+
+        changeLanguage(selectedLng);
+
         var imSel = this.obj; // 元の ImitationSelect オブジェクト
         imSel.selectId = this.idx; // 選んだ番号
         imSel.pulldownClose(); // プルダウン閉じて元のtr1表示
@@ -82,19 +86,24 @@ document.addEventListener("DOMContentLoaded", function () {
     /* 実行部 */
     var languages = new Array({
         txt: 'English',
-        img: '국기/UN.jpg'
+        img: '국기/UN.jpg',
+        val: 'en'
     },{
         txt: '日本語',
-        img: '국기/Japan.jpg'
+        img: '국기/Japan.jpg',
+        val: 'ja'
     },{
         txt: '한국어',
-        img: '국기/Korean.jpg'
+        img: '국기/Korean.jpg',
+        val: 'ko'
     },{
         txt: '中文',
-        img: '국기/China.jpg'
+        img: '국기/China.jpg',
+        val: 'cn'
     }, {
         txt: 'Tiếng Việt',
-        img: '국기/Vietnam.jpg'
+        img: '국기/Vietnam.jpg',
+        val: 'vi'
     });
     // 定義と表示
     var sel2 = new ImitationSelect("sel2", languages);
