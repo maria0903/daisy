@@ -58,7 +58,7 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
-function changeLanguage(language) {
+async function changeLanguage(language) {
     document.documentElement.lang = language.toLowerCase();
 
     const allLanguageElemList = document.querySelectorAll(`*[data-i18n]`);
@@ -70,11 +70,14 @@ function changeLanguage(language) {
     const selectedLanguageElemList = document.querySelectorAll(`*[data-i18n="${language}"]`);
 
     selectedLanguageElemList.forEach(x => {
-        x.style.cssText = 'display: flex;';
+        if (x.tagName === 'TABLE') {
+            x.style.cssText = 'display: table;';
+        } else {
+            x.style.cssText = 'display: flex;';
+        }
+    });
 
-        console.log(x, x.style);
-    })
-
+    await setHotNewsElement(language.toLowerCase());
 }
 
 function getLanguage() {
@@ -95,17 +98,20 @@ async function fetchUrl(url, options = {}) {
         .catch(error => console.log('error', error));
 }
 
-async function setHotNewsElement () {
+async function setHotNewsElement (language) {
+    console.log(getLanguage());
     const data = {
         method: 'POST',
         body: JSON.stringify({
-            keyword: '살인'
+            language: language || getLanguage().split('-')[0]
         })
     };
-    const hotNewsData = await fetchUrl(apiUrlScheme + hotNewsUrl, data);
+    const hotNewsData = await fetchUrl(apiUrlSchemeDev + hotNewsUrl, data);
 
     if (hotNewsData.length) {
         const hotNewsAreaElem = document.getElementById('hot-news-area');
+
+        hotNewsAreaElem.innerHTML = '';
 
         hotNewsData.forEach((x, idx) => {
             const htmlDivElement = document.createElement('div');
@@ -120,7 +126,7 @@ async function setHotNewsElement () {
                 htmlDivElement.style = `
                       border-radius: 3px;
                       overflow: hidden;
-                      background: rgb(175 223 223);
+                      background: #ade3e5e4;
                 `;
             }
 
@@ -182,4 +188,6 @@ async function setPoliceInfoElement () {
 // document ready
 document.addEventListener("DOMContentLoaded", function () {
     main();
+
+    document.getElementById('ThreatMap').style.height = `calc(40vh + ${document.documentElement.clientHeight / 15}px)`;
 });
