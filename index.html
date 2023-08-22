@@ -2,10 +2,10 @@
 <html lang="en" class="background">
 
 <head>
-    <!-- <div class="background"></div> -->
-    <title>Home2222</title>
+    <title>Daisy</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="styles-2.css" />
@@ -42,17 +42,17 @@
     </header>
 
     <!-- 검색 -->
-    <form method="get" action="/search" id="searchbox5" class="padding-default-x padding-default-y pt-0">
-        <input data-i18n="en" id="search51" name="q" type="text" size="40" placeholder="Hongdae Station" />
-        <input data-i18n="ja" id="search51" name="q" type="text" size="40" placeholder="ホンデ駅" />
-        <input data-i18n="ko" id="search51" name="q" type="text" size="40" placeholder="홍대역" />
-        <input data-i18n="cn" id="search51" name="q" type="text" size="40" placeholder="弘大站" />
-        <input data-i18n="vi" id="search51" name="q" type="text" size="40" placeholder="Hongdae Station" />
-    </form>
+    <div id="searchbox5" class="padding-default-x padding-default-y pt-0">
+        <input data-i18n="en" class="search51" name="q" type="text" size="40" placeholder="Hongdae Station" onkeyup="if(window.event.keyCode==13){search()}" />
+        <input data-i18n="ja" class="search51" name="q" type="text" size="40" placeholder="ホンデ駅" onkeyup="if(window.event.keyCode==13){search(this)}" />
+        <input data-i18n="ko" class="search51" name="q" type="text" size="40" placeholder="홍대역" onsubmit="search" onkeyup="if(window.event.keyCode==13){search(this)}" />
+        <input data-i18n="cn" class="search51" name="q" type="text" size="40" placeholder="弘大站" onkeyup="if(window.event.keyCode==13){search()}" />
+        <input data-i18n="vi" class="search51" name="q" type="text" size="40" placeholder="Hongdae Station" onkeyup="if(window.event.keyCode==13){search()}" />
+    </div>
 
 
     <!-- Map -->
-    <iframe id="ThreatMap" src="https://travel-danger.vercel.app/v1/map"></iframe>
+    <iframe id="ThreatMap" src="https://travel-danger.vercel.app/map/v1"></iframe>
 
     <!-- 뉴스 -->
     <p id="news">News</p>
