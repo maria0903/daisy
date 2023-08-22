@@ -6,6 +6,7 @@ const safeMapUrl = '/safeMap/v1/list';
 const hotNewsUrl = '/news/v1/list';
 const policeInfoUrl = '/police/v1/list';
 const threatMapUrl = '/map/v1';
+const reportUrl = '/report';
 
 async function main() {
     const href = document.location.href;
@@ -25,6 +26,36 @@ function setLocale () {
 
     if (currentLanguage) {
         changeLanguage(currentLanguage.split('-')[0]);
+    }
+}
+
+async function submitReport (e) {
+    const elems = document.getElementsByClassName('report-content');
+
+    let content;
+    for (const elem of elems) {
+        if (elem.value) {
+            content = elem.value;
+
+            elem.value = '';
+
+            break;
+        }
+    }
+
+    if (!content || content.length === 0) {
+        return;
+    }
+
+    const { result } = await fetchUrl(apiUrlScheme + reportUrl, { method: 'POST', body: JSON.stringify({ content }) });
+
+    if (result === 'SUCCESS') {
+        const myToast = Toastify({
+            text: "Thank you☺️",
+            duration: 3500
+        });
+
+        myToast.showToast();
     }
 }
 
@@ -98,7 +129,7 @@ async function setHotNewsElement (language) {
                 htmlDivElement.style = `
                       border-radius: 3px;
                       overflow: hidden;
-                      background: #ffffff;
+                      background: #e6f4f4eb;
                 `;
             } else {
                 htmlDivElement.style = `
