@@ -59,12 +59,17 @@ footer{
     /*transform : translateY(-100%);*/
     text-align: center;
     margin: 0;
+    margin-top: 4px;
     color: var(--main-sub-dark-color);
+}
+footer small {
+    font-family: 'Raleway', sans-serif !important;
 }
 header {
     margin: 0.5rem;
     line-height: 1;
     color: var(--main-dark-color);
+    align-items: center;
 }
 p {
     margin: 0;
@@ -175,6 +180,7 @@ h1, h2, h3, h4, h5, h6 {
     cursor:pointer;
     padding-left: 12px;
     padding-right: 4px;
+    margin-bottom: 6px;
     color: var(--main-dark-color);
 }
 
@@ -185,3 +191,10 @@ h1, h2, h3, h4, h5, h6 {
 #mySidenav .closebtn {
     font-size: 36px !important;
 }
+.font-size-normal {
+    font-size: 16px;
+}
+.font-size-semi-small {
+    font-size: 15px;
+}
+
