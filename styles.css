@@ -8,6 +8,15 @@ html { min-height: 100vh; }
 div {
   font-size: 20px;
 }
+small {
+  font-size: 11px;
+  display: flex;
+  line-height: 1;
+}
+
+main {
+  min-height: calc(100vh - 100px);
+}
 
 .class-01 {
   font-size: 28px;
@@ -23,6 +32,14 @@ div {
   display: flex;
   align-items: center;
 }
+:lang(en) .title {
+  font-size: 20px;
+  white-space: nowrap;
+}
+:lang(vi) .title {
+  font-size: 18px;
+  white-space: nowrap;
+}
 table {
   width: 100%;
 }
@@ -35,14 +52,18 @@ table {
     width:150px;
     padding:6px 15px 6px 35px;
     border-radius:4px;
-    box-shadow:0 1px 3px rgba(0,0,0,0.15) inset;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
     -webkit-transition: all 0.7s ease 0s;
     width: 200px;
 }
 
 .search51:focus{
     width: calc(100vw - 28%);
+    max-width: 900px !important;
     outline:0;
+}
+.search51:focus-within {
+  max-width: 900px;
 }
 /*  */
 
@@ -54,10 +75,6 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#sel2 {
-  margin-left: 20px;
 }
 
 /* table SELECTモドキ */
@@ -169,12 +186,26 @@ td.imitationText {
   text-align: center;
   width: 50%;
 }
+#police-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (min-width: 540px) {
+  #police-area {
+    justify-content: flex-start;
+  }
+  .report-content {
+    height: 15vh !important;
+  }
+}
 #hot-news-area, #police-area {
-  height: 280px;
+  height: 34vh;
 }
 #hot-news-area, #hot-news-area2 {
   overflow: scroll;
   border:1px solid #d1d1d1;
+  border-radius: 2px;
 }
 
 /* ニュースコンテンツ一行 */
@@ -221,15 +252,16 @@ table th{
   font-size: 12px;
 }
 #police{
-  height: 35%;
+  height: 10vh;
+  max-height: 100px;
 }
 #police table {
   border:1px solid #d1d1d1;
+  border-radius: 2px;
 }
 #police-area form {
-  height: 60%;
+  height: 20vh;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 #police table  td{
@@ -272,3 +304,21 @@ table th{
   margin-left: 0.6rem;
   margin-top: 0.6rem;
 }
+.toastify {
+  padding: 6px 10px !important;
+  color: var(--main-black-color) !important;
+  display: inline-block !important;
+  border:1px solid #d1d1d1 !important;
+  box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.12), 0 10px 36px -4px rgba(77, 96, 232, 0.3) !important;
+  background: -moz-linear-gradient(to bottom, #f2fffff2, #e1fefed9 30%, #ccf0f1a1) !important;
+  background: -webkit-linear-gradient(to bottom, #f2fffff2, #e1fefed9 30%, #ccf0f1a1) !important;
+  background: linear-gradient(to bottom, #f2fffff2, #e1fefed9 30%, #ccf0f1a1) !important;
+  position: fixed;
+  top: -150px;
+  right: 15px;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.toastify.on { opacity: 1; }
