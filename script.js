@@ -87,6 +87,8 @@ async function changeLanguage(language) {
     selectedLanguageElemList.forEach(x => {
         if (x.tagName === 'TABLE') {
             x.style.cssText = 'display: table;';
+        } else if (x.tagName === 'P') {
+            x.style.cssText = 'display: block;';
         } else {
             x.style.cssText = 'display: flex;';
         }

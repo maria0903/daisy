@@ -109,7 +109,7 @@ table.imitationSelect {
 table.imitationPulldown {
   position: absolute;
   z-index: 12;
-  left: -1px;
+  left: -31px;
   top: 35px;
   /* border サイズ分を引く */
   width: 140px;
@@ -182,9 +182,9 @@ td.imitationText {
 }
 
 /*News */
-#news{
+.news, .stat {
   text-align: center;
-  width: 50%;
+  font-size: 16px;
 }
 #police-area {
   display: flex;
@@ -196,7 +196,28 @@ td.imitationText {
     justify-content: flex-start;
   }
   .report-content {
-    height: 15vh !important;
+    height: 14.5vh !important;
+  }
+
+  :lang(en) table th {
+    font-size: 16px !important;
+  }
+  .report-submit {
+    padding: 6px 12px !important;
+  }
+}
+@media (max-width: 380px) {
+  form label {
+    font-size: 13px !important;
+  }
+  :lang(vi) form label {
+    font-size: 12px !important;
+  }
+  #police table th {
+    font-size: 12px !important;
+  }
+  #police table td {
+    font-size: 13px !important;
   }
 }
 #hot-news-area, #police-area {
@@ -252,8 +273,9 @@ table th{
   font-size: 12px;
 }
 #police{
-  height: 10vh;
+  height: 11.5vh;
   max-height: 100px;
+  min-height: 88px;
 }
 #police table {
   border:1px solid #d1d1d1;
@@ -268,7 +290,7 @@ table th{
   padding : 12px 6px;
   background-color:#ccf0f1eb ;
   text-align: center !important;
-  font-size: 16px !important;
+  font-size: 16px;
   line-height: 1;
 }
 .policeen{
@@ -322,3 +344,7 @@ table th{
   cursor: pointer;
 }
 .toastify.on { opacity: 1; }
+
+.hidden {
+  display: none !important;
+}

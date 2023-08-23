@@ -9,6 +9,13 @@
     unicode-range: U+3041-3096, U+309D, U+309E, U+30A1-30FA, U+30FC, U+4E00-9FEA, U+3400-4DB5, U+F900-FA6D;
 }
 
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --main-dark-color: #000000;
     --main-sub-dark-color: gray;
@@ -16,11 +23,14 @@
 }
 
 :lang(cn) {
-    font-family: 'Noto Sans SC', sans-serif;
+    font-family: 'ZCOOL XiaoWei', sans-serif;
 }
 
 :lang(ko) {
-    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+:lang(ko) .report-submit {
+    width: 35px;
 }
 
 :lang(ja) {
@@ -33,6 +43,10 @@
 
 :lang(vi) {
     font-weight: 400;
+}
+
+:lang(vi) form label {
+    font-size: 14px;
 }
 
 a {
@@ -55,7 +69,6 @@ body {
     min-height: 100%;
     margin: 0 auto;
     max-width: 1000px;
-    overflow: hidden;
 }
 footer{
     /*height: 28px;*/
@@ -75,6 +88,10 @@ header {
     color: var(--main-dark-color);
     align-items: center;
     justify-content: space-between;
+    width: calc(100% - 17px);
+}
+header h1 {
+    white-space: nowrap;
 }
 p {
     margin: 0;
@@ -140,6 +157,10 @@ h1, h2, h3, h4, h5, h6 {
 .padding-default-y {
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
+}
+
+.padding-default-top {
+    padding-top: 0.3rem;
 }
 
 .justify-space-between {
@@ -216,6 +237,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 2px;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
     outline: none !important;
+    resize: none;
 }
 
 .report-submit {
@@ -224,8 +246,9 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 3px;
     padding-bottom: 3px;
     border-radius: 2px;
-    width: 30px;
     text-align: center;
+    outline: none;
+    cursor: pointer;
 }
 
 .mb-1 {
