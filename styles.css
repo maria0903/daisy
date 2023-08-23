@@ -87,7 +87,7 @@ table.imitationPulldown {
   border-radius: 3px;
   border:1px solid #d1d1d1;
   overflow: hidden;
-  background: #e1fefeb7;
+  background: #f2ffffb7;
   color: #594a4e;
   line-height: 0px;
   /* これを入れないと、下に隙間が出来る場合がある */
@@ -219,6 +219,13 @@ td.imitationText {
   #police table td {
     font-size: 13px !important;
   }
+}
+#hot-news-area {
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+}
+#hot-news-area::-webkit-scrollbar {
+  display: none; /* 크롬, 사파리, 오페라, 엣지 */
 }
 #hot-news-area, #police-area {
   height: 34vh;

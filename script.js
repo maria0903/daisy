@@ -8,6 +8,14 @@ const policeInfoUrl = '/police/v1/list';
 const threatMapUrl = '/map/v1';
 const reportUrl = '/report';
 
+const titleMatch = {
+    en: 'Daisy',
+    ja: 'デージー',
+    cn: '雏菊',
+    ko: '데이지',
+    vi: 'Hoa cúc'
+}
+
 async function main() {
     const href = document.location.href;
 
@@ -95,6 +103,7 @@ async function changeLanguage(language) {
     });
 
     await setHotNewsElement(language.toLowerCase());
+    document.title = titleMatch[language.toLowerCase()];
 }
 
 function getLanguage() {
