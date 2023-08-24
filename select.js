@@ -74,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* プルダウンの中身をクリックした時 */
     ImitationSelect.prototype.selectPD = function (e) {
-        let selecteLng = e;
         if (typeof e === 'object') {
             selectedLng = e.target.getAttribute('value');
         }
@@ -86,8 +85,14 @@ document.addEventListener("DOMContentLoaded", function () {
         imSel.pulldownClose(); // プルダウン閉じて元のtr1表示
     }
 
+    ImitationSelect.prototype.selectPDX = function (idx, language) {
+        this.selectId = idx; // 選んだ番号
+        this.pulldownClose(); // プルダウン閉じて元のtr1表示
+        changeLanguage(language);
+    }
+
     /* 実行部 */
-    var languages = [{
+    const languages = [{
         txt: 'English',
         img: 'https://malihua-store.s3.ap-northeast-2.amazonaws.com/flag/UN.jpg',
         val: 'en'
@@ -109,7 +114,9 @@ document.addEventListener("DOMContentLoaded", function () {
         val: 'vi'
     }];
     // 定義と表示
-    var sel2 = new ImitationSelect("sel2", languages);
+    const sel2 = new ImitationSelect("sel2", languages);
     sel2.disp();
+    const language = getLanguage().split('-')[0];
 
+    sel2.selectPDX(languages.findIndex(x => x.val === language), language);
 });
