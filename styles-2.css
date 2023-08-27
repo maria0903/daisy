@@ -1,9 +1,4 @@
 @font-face {
-    font-family: "kcc";
-    src: url(./kcc-ganpan/KCC-Ganpan/KCC-Ganpan.ttf) format("truetype");
-    unicode-range: U+AC00-D7A3;
-}
-@font-face {
     font-family: "azuki";
     src: url(./azukifontL120/azukiL.ttf) format("truetype");
     unicode-range: U+3041-3096, U+309D, U+309E, U+30A1-30FA, U+30FC, U+4E00-9FEA, U+3400-4DB5, U+F900-FA6D;
@@ -165,6 +160,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .justify-space-between {
     justify-content: space-between;
+}
+.justify-center {
+    justify-content: center;
 }
 
 .pt-0 {
