@@ -92,7 +92,7 @@ function closeNav() {
 async function changeLanguage(language, noFetch) {
     const isShelter = location.href.includes('shelter');
     const iframeUrl = isShelter ? shelterMapUrl : threatMapUrl;
-    const iframeId = isShelter ? 'ShelterMap' : 'THreatMap';
+    const iframeId = isShelter ? 'ShelterMap' : 'ThreatMap';
 
     console.log(isShelter);
     console.log(iframeUrl);
