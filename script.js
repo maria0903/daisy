@@ -8,6 +8,8 @@ const policeInfoUrl = '/police/v1/list';
 const threatMapUrl = '/map/v1';
 const reportUrl = '/report';
 
+let locale = 'en';
+
 const titleMatch = {
     en: 'Daisy',
     ja: 'デージー',
@@ -24,7 +26,6 @@ async function main() {
     if (href.includes('police')) {
         setPoliceInfoElement();
     } else {
-        setHotNewsElement();
         const safeMapData = await fetchUrl(apiUrlScheme + safeMapUrl);
     }
 }
@@ -33,7 +34,7 @@ function setLocale () {
     const currentLanguage = getLanguage();
 
     if (currentLanguage) {
-        changeLanguage(currentLanguage.split('-')[0]);
+        changeLanguage(currentLanguage.split('-')[0], true);
     }
 }
 
@@ -70,7 +71,7 @@ async function submitReport (e) {
 function search (e) {
     const iframe = document.getElementById('ThreatMap');
 
-    iframe.src = urlScheme + threatMapUrl + `?q=${e.value}`;
+    iframe.src = urlScheme + threatMapUrl + `?locale=${locale}&q=${e.value}`;
 }
 
 
@@ -81,8 +82,15 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
-async function changeLanguage(language) {
+async function changeLanguage(language, noFetch) {
     document.documentElement.lang = language.toLowerCase();
+    document.title = titleMatch[language.toLowerCase()];
+
+    locale = language.toLowerCase();
+
+    const ifram = document.getElementById('ThreatMap');
+
+    ifram.src = `${urlScheme}${threatMapUrl}?locale=${language.toLowerCase()}`
 
     const allLanguageElemList = document.querySelectorAll(`*[data-i18n]`);
 
@@ -102,8 +110,9 @@ async function changeLanguage(language) {
         }
     });
 
-    await setHotNewsElement(language.toLowerCase());
-    document.title = titleMatch[language.toLowerCase()];
+    if (!noFetch) {
+        await setHotNewsElement(language.toLowerCase());
+    }
 }
 
 function getLanguage() {
@@ -120,6 +129,16 @@ async function fetchUrl(url, options = {}) {
 }
 
 async function setHotNewsElement (language) {
+    const hotNewsAreaElem = document.getElementById('hot-news-area');
+
+    hotNewsAreaElem.innerHTML = `
+         <div class="loadingio-spinner-eclipse-7619zybbhb">
+             <div class="ldio-wofmlj1rnkd">
+                 <div></div>
+             </div>
+         </div>
+    `;
+
     const data = {
         method: 'POST',
         body: JSON.stringify({
@@ -129,40 +148,40 @@ async function setHotNewsElement (language) {
     const hotNewsData = await fetchUrl(apiUrlScheme + hotNewsUrl, data);
 
     if (hotNewsData.length) {
-        const hotNewsAreaElem = document.getElementById('hot-news-area');
-
         hotNewsAreaElem.innerHTML = '';
 
         hotNewsData.forEach((x, idx) => {
-            const htmlDivElement = document.createElement('div');
+            const htmlSectionElement = document.createElement('section');
 
             if (idx % 2) {
-                htmlDivElement.style = `
+                htmlSectionElement.style = `
                       border-radius: 3px;
                       overflow: hidden;
                       background: #e6f4f4eb;
                 `;
             } else {
-                htmlDivElement.style = `
+                htmlSectionElement.style = `
                       border-radius: 3px;
                       overflow: hidden;
                       background: #ade3e5e4;
                 `;
             }
 
-            htmlDivElement.classList = ['additional-row'];
-            htmlDivElement.ariaRowIndex = idx + 1;
-            htmlDivElement.innerHTML = `
+            htmlSectionElement.classList = ['additional-row'];
+            htmlSectionElement.ariaRowIndex = idx + 1;
+            htmlSectionElement.ariaLabel = x.desc;
+            htmlSectionElement.ariaHasPopup = "true";
+                htmlSectionElement.innerHTML = `
                 <a href="${x.url}">
-                    <p class="additional-title">${idx + 1}. ${x.title}</p>
+                    <h6 class="additional-title">${idx + 1}. ${x.title}</h6>
                     <div class="flex gap-1 pt-1 justify-space-between">
-                        <p class="additional-desc">${x.desc}</p>
-                        <img class="additional-img" src="${x.imgUrl}" alt="${x.title}"></img>
+                        <p class="additional-desc">${x.description}</p>
+                        <img class="additional-img" src="${x.img_url}" alt="${x.title}"></img>
                     </div>
                 </a>
                 `;
 
-            hotNewsAreaElem.appendChild(htmlDivElement);
+            hotNewsAreaElem.appendChild(htmlSectionElement);
         });
     }
 }
