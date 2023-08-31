@@ -6,16 +6,25 @@ const safeMapUrl = '/safeMap/v1/list';
 const hotNewsUrl = '/news/v1/list';
 const policeInfoUrl = '/police/v1/list';
 const threatMapUrl = '/map/v1';
+const shelterMapUrl = '/shelter/v1'
 const reportUrl = '/report';
 
 let locale = 'en';
 
-const titleMatch = {
+const titleMatchThreat = {
     en: 'Daisy',
     ja: 'デージー',
     cn: '雏菊',
     ko: '데이지',
     vi: 'Hoa cúc'
+}
+
+const titleMatchShelter = {
+    en: 'Daisy - Shelter',
+    ja: 'デージー - 待避所',
+    cn: '雏菊 - 避难所',
+    ko: '데이지 - 대피소',
+    vi: 'Hoa cúc - nơi lẩn tránh'
 }
 
 async function main() {
@@ -25,8 +34,6 @@ async function main() {
 
     if (href.includes('police')) {
         setPoliceInfoElement();
-    } else {
-        const safeMapData = await fetchUrl(apiUrlScheme + safeMapUrl);
     }
 }
 
@@ -83,14 +90,23 @@ function closeNav() {
 }
 
 async function changeLanguage(language, noFetch) {
+    const isShelter = location.href.includes('shelter');
+    const iframeUrl = isShelter ? shelterMapUrl : threatMapUrl;
+    const iframeId = isShelter ? 'ShelterMap' : 'THreatMap';
+
     document.documentElement.lang = language.toLowerCase();
-    document.title = titleMatch[language.toLowerCase()];
+
+    if (isShelter) {
+        document.title = titleMatchShelter[language.toLowerCase()];
+    } else {
+        document.title = titleMatchThreat[language.toLowerCase()];
+    }
 
     locale = language.toLowerCase();
 
-    const ifram = document.getElementById('ThreatMap');
+    const iframe = document.getElementById(iframeId);
 
-    ifram.src = `${urlScheme}${threatMapUrl}?locale=${language.toLowerCase()}`
+    iframe.src = `${urlScheme}${iframeUrl}?locale=${language.toLowerCase()}`
 
     const allLanguageElemList = document.querySelectorAll(`*[data-i18n]`);
 
@@ -110,7 +126,9 @@ async function changeLanguage(language, noFetch) {
         }
     });
 
-    if (!noFetch) {
+
+
+    if (!noFetch && !isShelter) {
         await setHotNewsElement(language.toLowerCase());
     }
 }
@@ -226,5 +244,11 @@ async function setPoliceInfoElement () {
 document.addEventListener("DOMContentLoaded", function () {
     main();
 
-    document.getElementById('ThreatMap').style.height = `calc(40vh + ${document.documentElement.clientHeight / 15}px)`;
+    const isShelter = location.href.includes('shelter');
+
+    if (isShelter) {
+        document.getElementById('ShelterMap').style.height = `calc(70vh + ${document.documentElement.clientHeight / 15}px)`;
+    } else {
+        document.getElementById('ThreatMap').style.height = `calc(40vh + ${document.documentElement.clientHeight / 15}px)`;
+    }
 });
