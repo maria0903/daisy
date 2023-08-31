@@ -94,6 +94,12 @@ async function changeLanguage(language, noFetch) {
     const iframeUrl = isShelter ? shelterMapUrl : threatMapUrl;
     const iframeId = isShelter ? 'ShelterMap' : 'THreatMap';
 
+    console.log(isShelter);
+    console.log(iframeUrl);
+    console.log(iframeId);
+    console.log(location.href)
+    console.log(`${urlScheme}${iframeUrl}?locale=${language.toLowerCase()}`);
+
     document.documentElement.lang = language.toLowerCase();
 
     if (isShelter) {
@@ -104,9 +110,14 @@ async function changeLanguage(language, noFetch) {
 
     locale = language.toLowerCase();
 
-    const iframe = document.getElementById(iframeId);
+    try {
+        const iframe = document.getElementById(iframeId);
 
-    iframe.src = `${urlScheme}${iframeUrl}?locale=${language.toLowerCase()}`
+        iframe.src = `${urlScheme}${iframeUrl}?locale=${language.toLowerCase()}`
+    } catch (e) {
+        console.log(e);
+    }
+
 
     const allLanguageElemList = document.querySelectorAll(`*[data-i18n]`);
 
