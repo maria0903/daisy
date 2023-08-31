@@ -173,6 +173,13 @@ td.imitationText {
 /* 下からは整列だけしています
  * 色、フォントのサイズなどはマリアの決まり
  */
+.row {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  gap: 4px;
+}
 #additional-contents {
   display: flex;
   align-items: flex-start;
