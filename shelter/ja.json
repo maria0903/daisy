@@ -1,3 +1,26 @@
 {
-    "hello": "an nyong ha sae yo"
-}
+    "살려주세요": [
+        "Help me, please.",
+        "助けてください",
+        "请帮帮我",
+        "Xin hãy giúp tôi.",
+    ],
+    "경찰 불러 주세요.": [
+        "Call the police.",
+        "警察を呼んでください",
+        "请帮我叫一下警察。",
+        "Hãy gọi cảnh sát.",
+    ],
+    "문좀 닫아주세요": [
+        "Please close the door.",
+        "ドアを閉めてください",
+        "请关上门",
+        "Làm ơn đóng cửa lại đi ạ",
+    ],
+    "누가 쫓아오고 있어요": [
+        "Someone's following me",
+        "誰かが追いかけてきています",
+        "有人在追我",
+        "Có ai đó đang đuổi theo mình",
+    ]
+} 
