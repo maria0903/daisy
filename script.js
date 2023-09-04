@@ -8,6 +8,7 @@ const policeInfoUrl = '/police/v1/list';
 const threatMapUrl = '/map/v1';
 const shelterMapUrl = '/shelter/v1'
 const reportUrl = '/report';
+const reportListUrl = '/report/list';
 
 let locale = 'en';
 
@@ -130,7 +131,7 @@ async function changeLanguage(language, noFetch) {
     selectedLanguageElemList.forEach(x => {
         if (x.tagName === 'TABLE') {
             x.style.cssText = 'display: table;';
-        } else if (x.tagName === 'P') {
+        } else if (x.tagName === 'P' || x.tagName === 'RUBY') {
             x.style.cssText = 'display: block;';
         } else {
             x.style.cssText = 'display: flex;';
@@ -141,6 +142,7 @@ async function changeLanguage(language, noFetch) {
 
     if (!noFetch && !isShelter) {
         await setHotNewsElement(language.toLowerCase());
+        await setReportList();
     }
 }
 
@@ -211,6 +213,65 @@ async function setHotNewsElement (language) {
                 `;
 
             hotNewsAreaElem.appendChild(htmlSectionElement);
+        });
+    }
+}
+
+async function setReportList (language) {
+    const reportListAreaElem = document.getElementById('report-list-area');
+
+    reportListAreaElem.innerHTML = `
+         <div class="loadingio-spinner-eclipse-7619zybbhb">
+             <div class="ldio-wofmlj1rnkd">
+                 <div></div>
+             </div>
+         </div>
+    `;
+
+    const data = {
+        method: 'POST',
+        body: JSON.stringify({
+            language: language || getLanguage().split('-')[0]
+        })
+    };
+    const reportListData = await fetchUrl(apiUrlScheme + reportListUrl, data);
+
+    console.log(reportListData);
+
+    if (reportListData.result.length) {
+        reportListAreaElem.innerHTML = '';
+
+        reportListData.result.forEach((x, idx) => {
+            const htmlSectionElement = document.createElement('section');
+
+            if (idx % 2) {
+                htmlSectionElement.style = `
+                      border-radius: 3px;
+                      overflow: hidden;
+                      background: #e6f4f4eb;
+                `;
+            } else {
+                htmlSectionElement.style = `
+                      border-radius: 3px;
+                      overflow: hidden;
+                      background: #ade3e5e4;
+                `;
+            }
+
+            htmlSectionElement.classList = ['additional-row'];
+            htmlSectionElement.ariaRowIndex = idx + 1;
+            htmlSectionElement.ariaLabel = x.desc;
+            htmlSectionElement.ariaHasPopup = "true";
+                htmlSectionElement.innerHTML = `
+                <a href="${x.url}">
+                    <h6 class="additional-title-2">${idx + 1}. ${x.content}</h6>
+                    <div class="flex gap-1 pt-1 justify-space-between">
+                        <p class="additional-desc-2">${x.created_at}</p>
+                    </div>
+                </a>
+                `;
+
+            reportListAreaElem.appendChild(htmlSectionElement);
         });
     }
 }
