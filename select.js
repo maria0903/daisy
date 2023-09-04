@@ -3,6 +3,7 @@
  *
  * @author 마리아
  * @description 이거는 마리아가 만든 파일이므로 지우면 안됩니다.
+ * @token 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
  */
 
 document.addEventListener("DOMContentLoaded", function () {
