@@ -362,3 +362,9 @@ table th{
 .hidden {
   display: none !important;
 }
+.msg{
+  text-align:center;
+  font-size:15px;
+  line-height: 2;
+  margin:5px;
+}
