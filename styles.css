@@ -180,12 +180,16 @@ td.imitationText {
   padding-right: 0.6rem;
   gap: 4px;
 }
-#additional-contents {
+#additional-contents, #additional-contents2 {
   display: flex;
   align-items: flex-start;
   padding-left: 0.6rem;
   padding-right: 0.6rem;
   gap: 4px;
+}
+
+#additional-contents > section, #additional-contents2 > section {
+  max-width: calc(50% - 2px);
 }
 
 /*News */
@@ -227,17 +231,23 @@ td.imitationText {
     font-size: 13px !important;
   }
 }
-#hot-news-area {
+#hot-news-area, #report-list-area {
   -ms-overflow-style: none; /* 인터넷 익스플로러 */
   scrollbar-width: none; /* 파이어폭스 */
 }
-#hot-news-area::-webkit-scrollbar {
+#hot-news-area::-webkit-scrollbar, #report-list-area::-webkit-scrollbar {
   display: none; /* 크롬, 사파리, 오페라, 엣지 */
 }
-#hot-news-area, #police-area {
+#hot-news-area, #police-area, #report-list-area {
   height: 34vh;
 }
-#hot-news-area, #hot-news-area2 {
+#report-list-area {
+  height: 20vh;
+}
+#news-sita-area div {
+  justify-content: center;;
+}
+#hot-news-area, #hot-news-area2, #report-list-area {
   overflow: scroll;
   border:1px solid #d1d1d1;
   border-radius: 2px;
@@ -249,11 +259,17 @@ td.imitationText {
 }
 
 /* ニュースコンテンツのタイトル */
-.additional-title, .additional-desc {
+.additional-title, .additional-title-2, .additional-desc, .additional-desc-2 {
   font-size: 12px;
 }
 .additional-title {
   -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+}
+.additional-title-2 {
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -266,6 +282,9 @@ td.imitationText {
   overflow: hidden;
   display: -webkit-box;
   height: 57px;
+}
+.additional-desc-2 {
+  height: 20px;
 }
 
 .additional-img {
