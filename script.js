@@ -95,13 +95,9 @@ async function changeLanguage(language, noFetch) {
     const iframeUrl = isShelter ? shelterMapUrl : threatMapUrl;
     const iframeId = isShelter ? 'ShelterMap' : 'ThreatMap';
 
-    console.log(isShelter);
-    console.log(iframeUrl);
-    console.log(iframeId);
-    console.log(location.href)
-    console.log(`${urlScheme}${iframeUrl}?locale=${language.toLowerCase()}`);
-
     document.documentElement.lang = language.toLowerCase();
+
+    localStorage.setItem('language', language.toLowerCase());
 
     if (isShelter) {
         document.title = titleMatchShelter[language.toLowerCase()];
@@ -141,12 +137,17 @@ async function changeLanguage(language, noFetch) {
 
 
     if (!noFetch && !isShelter) {
-        await setHotNewsElement(language.toLowerCase());
-        await setReportList();
+        setHotNewsElement(language.toLowerCase());
+        setReportList();
     }
 }
 
 function getLanguage() {
+    const localStorageLanguage = localStorage.getItem('language');
+
+    if (localStorageLanguage) {
+        return localStorageLanguage;
+    }
     return navigator.language || navigator.userLanguage;
 }
 

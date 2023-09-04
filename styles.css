@@ -188,6 +188,10 @@ td.imitationText {
   gap: 4px;
 }
 
+#additional-contents > section, #additional-contents2 > section {
+  max-width: calc(50% - 2px);
+}
+
 /*News */
 .news, .stat {
   text-align: center;
