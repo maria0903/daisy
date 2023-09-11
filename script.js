@@ -1,7 +1,7 @@
 const urlScheme = 'https://travel-danger.vercel.app';
-const urlSchemeDev = 'http://localhost:3001';
+const urlSchemeDev = 'http://localhost:4001';
 const apiUrlScheme = 'https://travel-danger.vercel.app/api';
-const apiUrlSchemeDev = 'http://localhost:3001/api';
+const apiUrlSchemeDev = 'http://localhost:4001/api';
 const safeMapUrl = '/safeMap/v1/list';
 const hotNewsUrl = '/news/v1/list';
 const policeInfoUrl = '/police/v1/list';
@@ -90,7 +90,18 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
+const pos = {}
+
 async function changeLanguage(language, noFetch) {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            pos.lat = position.coords.latitude;
+            pos.lng = position.coords.longitude;
+
+            applyMap(language, pos)
+        });
+    }
+    
     const isShelter = location.href.includes('shelter');
     const iframeUrl = isShelter ? shelterMapUrl : threatMapUrl;
     const iframeId = isShelter ? 'ShelterMap' : 'ThreatMap';
@@ -106,15 +117,6 @@ async function changeLanguage(language, noFetch) {
     }
 
     locale = language.toLowerCase();
-
-    try {
-        const iframe = document.getElementById(iframeId);
-
-        iframe.src = `${urlScheme}${iframeUrl}?locale=${language.toLowerCase()}`
-    } catch (e) {
-        console.log(e);
-    }
-
 
     const allLanguageElemList = document.querySelectorAll(`*[data-i18n]`);
 
@@ -139,6 +141,26 @@ async function changeLanguage(language, noFetch) {
     if (!noFetch && !isShelter) {
         setHotNewsElement(language.toLowerCase());
         setReportList();
+    }
+}
+
+function applyMap(language = 'en', pos = {}) {
+    const isShelter = location.href.includes('shelter');
+    const iframeUrl = isShelter ? shelterMapUrl : threatMapUrl;
+    const iframeId = isShelter ? 'ShelterMap' : 'ThreatMap';
+
+    try {
+        const iframe = document.getElementById(iframeId);
+
+        let pathParams = `locale=${language.toLowerCase()}`;
+
+        if (Object.keys(pos).length) {
+            pathParams += `&lat=${pos.lat}&lng=${pos.lng}`;
+        }
+
+        iframe.src = `${urlScheme}${iframeUrl}?${pathParams}`
+    } catch (e) {
+        console.log(e);
     }
 }
 
