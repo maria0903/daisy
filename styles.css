@@ -14,10 +14,6 @@ small {
   line-height: 1;
 }
 
-main {
-  min-height: calc(100vh - 100px);
-}
-
 .class-01 {
   font-size: 28px;
 }

@@ -342,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const isShelter = location.href.includes('shelter');
 
     if (isShelter) {
-        document.getElementById('ShelterMap').style.height = `calc(70vh + ${document.documentElement.clientHeight / 15}px)`;
+        document.getElementById('ShelterMap').style.height = `calc(60vh + ${document.documentElement.clientHeight / 15}px)`;
     } else {
         document.getElementById('ThreatMap').style.height = `calc(40vh + ${document.documentElement.clientHeight / 15}px)`;
     }
